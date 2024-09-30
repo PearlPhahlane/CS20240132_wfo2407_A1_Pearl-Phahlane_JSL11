@@ -274,7 +274,9 @@ function toggleTheme() {
 
 function openEditTaskModal(task) {
   // Set task details in modal inputs
-  
+  elements.edidTaskInput.value = task.title;
+  elements.editInputArea.value = task.description;
+  elements.editSelectStatus.value = task.status;
 
   // Get button elements from the task modal
 
