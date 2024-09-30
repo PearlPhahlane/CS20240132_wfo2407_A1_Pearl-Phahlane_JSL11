@@ -266,7 +266,8 @@ function toggleSidebar(show) {
 }
 
 function toggleTheme() {
- 
+  document.body.classList.toggle('light-theme');
+  localStorage.setItem('light-theme', document.body.classList.contains('light-theme') ? 'enabled' : 'disable');
 }
 
 
