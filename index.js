@@ -283,10 +283,14 @@ function openEditTaskModal(task) {
   const deleteTaskBtn = elements.deleteTaskBtn;
 
   // Call saveTaskChanges upon click of Save Changes button
- 
+ saveChangesBtn.onclick = () => saveTaskChanges(task.id)
 
   // Delete task using a helper function and close the task modal
-
+  deleteTaskBtn.onclick = () => {
+    deleteTask(task.id);
+    toggleModal(false, elements.editTaskModal);
+    refreshTasksUI;
+  }
 
   toggleModal(true, elements.editTaskModal); // Show the edit task modal
 }
