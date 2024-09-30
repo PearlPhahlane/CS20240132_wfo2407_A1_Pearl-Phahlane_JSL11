@@ -155,12 +155,10 @@ function refreshTasksUI() {
 // TASK: Fix Bugs
 function styleActiveBoard(boardName) {
   document.querySelectorAll('.board-btn').foreach(btn => { 
-    
     if(btn.textContent === boardName) {
-      btn.add('active') 
-    }
-    else {
-      btn.remove('active'); 
+      btn.classList.add('active') 
+    } else {
+      btn.classList.remove('active'); 
     }
   });
 }
