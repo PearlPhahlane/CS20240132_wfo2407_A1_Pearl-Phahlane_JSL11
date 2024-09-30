@@ -305,14 +305,12 @@ function saveTaskChanges(taskId) {
 
   };
 
-  // Create an object with the updated task details
 
+  patchTask(taskId, updatedTask);
 
-  // Update task using a hlper functoin
- 
 
   // Close the modal and refresh the UI to reflect the changes
-
+  toggleModal(false, elements.editTaskModal);
   refreshTasksUI();
 }
 
