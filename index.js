@@ -70,6 +70,7 @@ const elements = {
   cancelEditBtn: document.getElementById("cancel-edit-btn"),
   deleteTaskBtn: document.getElementById("cancel-edit-btn"),
   filter: document.getElementById("filterDiv"),
+  columnDivs: document.querySelectorAll(".column-div"),
 };
 
 let activeBoard = ""
@@ -154,7 +155,7 @@ function refreshTasksUI() {
 // Styles the active board by adding an active class
 // TASK: Fix Bugs
 function styleActiveBoard(boardName) {
-  document.querySelectorAll('.board-btn').foreach(btn => { 
+  document.querySelectorAll('.board-btn').forEach(btn => { 
     if(btn.textContent === boardName) {
       btn.classList.add('active') 
     } else {
