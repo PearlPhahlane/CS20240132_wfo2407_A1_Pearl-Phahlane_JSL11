@@ -1,7 +1,7 @@
 // TASK: import helper functions from utils
 // TASK: import initialData
-import { getTasks, saveTasks, createNewTask, patchTask, putTask, deleteTask } from 'utils/taskFunctions.js';
-import { initialData } from 'initialData.js'
+import { getTasks, createNewTask, patchTask, putTask, deleteTask } from './utils/taskFunctions.js';
+import { initialData } from "./initialData.js";
 
 
 /*************************************************************************************************************************************************
@@ -70,7 +70,7 @@ const elements = {
   cancelEditBtn: document.getElementById("cancel-edit-btn"),
   deleteTaskBtn: document.getElementById("cancel-edit-btn"),
   filter: document.getElementById("filterDiv"),
-}
+};
 
 let activeBoard = ""
 
@@ -198,13 +198,13 @@ function setupEventListeners() {
   const cancelAddTaskBtn = document.getElementById('cancel-add-task-btn');
   cancelAddTaskBtn.addEventListener('click', () => {
     toggleModal(false);
-    elements.filterDiv.style.display = 'none'; // Also hide the filter overlay
+    elements.filter.style.display = 'none'; // Also hide the filter overlay
   });
 
   // Clicking outside the modal to close it
-  elements.filterDiv.addEventListener('click', () => {
+  elements.filter.addEventListener('click', () => {
     toggleModal(false);
-    elements.filterDiv.style.display = 'none'; // Also hide the filter overlay
+    elements.filter.style.display = 'none'; // Also hide the filter overlay
   });
 
   // Show sidebar event listener
@@ -212,24 +212,24 @@ function setupEventListeners() {
   elements.showSideBarBtn.addEventListener('click', () => toggleSidebar(true));
 
   // Theme switch event listener
-  elements.themeSwitch.addEventListener('change', toggleTheme);
+  elements.typeToggle.addEventListener("change", toggleTheme);
 
   // Show Add New Task Modal event listener
-  elements.createNewTaskBtn.addEventListener('click', () => {
+  elements.createTaskBtn.addEventListener('click', () => {
     toggleModal(true);
-    elements.filterDiv.style.display = 'block'; // Also show the filter overlay
+    elements.filter.style.display = 'block'; // Also show the filter overlay
   });
 
   // Add new task form submission event listener
-  elements.modalWindow.addEventListener('submit',  (event) => {
-    addTask(event)
+  elements.taskModal.addEventListener("submit", (event) => {
+    addTask(event);
   });
 }
 
 // Toggles tasks modal
 // Task: Fix bugs
-function toggleModal(show, modal = elements.modalWindow) {
-  modal.style.display = show ? 'block' : 'none'; 
+function toggleModal(show, modal = elements.taskModal) {
+  modal.style.display = show ? "block" : "none";
 }
 
 /*************************************************************************************************************************************************
@@ -252,7 +252,7 @@ function addTask(event) {
     if (newTask) {
       addTaskToUI(newTask);
       toggleModal(false);
-      elements.filterDiv.style.display = 'none'; // Also hide the filter overlay
+      elements.filter.style.display = 'none'; // Also hide the filter overlay
       event.target.reset();
       refreshTasksUI();
     }
