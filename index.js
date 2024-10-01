@@ -116,7 +116,6 @@ function displayBoards(boards) {
 function filterAndDisplayTasksByBoard(boardName) {
   const tasks = getTasks(); // Fetch tasks from a simulated local storage function
   const filteredTasks = tasks.filter(task => task.board === boardName);
-
   // Ensure the column titles are set outside of this function or correctly initialized before this function runs
 
   elements.columnDivs.forEach(column => {
@@ -139,7 +138,7 @@ function filterAndDisplayTasksByBoard(boardName) {
 
       // Listen for a click event on each task and open a modal
       taskElement.addEventListener('click', () => { 
-        openEditTaskModal(task);
+        openEditTaskModal(task);  
       });
 
       tasksContainer.appendChild(taskElement);
@@ -284,17 +283,17 @@ function openEditTaskModal(task) {
   const deleteTaskBtn = elements.deleteTaskBtn;
 
   // Call saveTaskChanges upon click of Save Changes button
- saveChangesBtn.onclick = () => saveTaskChanges(task.id)
+ saveChangesBtn.onclick = () => saveTaskChanges(task.id);
 
   // Delete task using a helper function and close the task modal
   deleteTaskBtn.onclick = () => {
     deleteTask(task.id);
     toggleModal(false, elements.editTaskModal);
-    refreshTasksUI;
-  }
+    refreshTasksUI();
+  };
 
   toggleModal(true, elements.editTaskModal); // Show the edit task modal
-}
+};
 
 function saveTaskChanges(taskId) {
   // Get new user inputs
@@ -328,4 +327,4 @@ function init() {
   const isLightTheme = localStorage.getItem('light-theme') === 'enabled';
   document.body.classList.toggle('light-theme', isLightTheme);
   fetchAndDisplayBoardsAndTasks(); // Initial display of boards and tasks
-}
+};
