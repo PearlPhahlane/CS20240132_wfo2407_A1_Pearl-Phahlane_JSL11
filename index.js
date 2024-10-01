@@ -88,7 +88,7 @@ function fetchAndDisplayBoardsAndTasks() {
     styleActiveBoard(activeBoard);
     refreshTasksUI();
   }
-}
+};
 
 // Creates different boards in the DOM
 // TASK: Fix Bugs
@@ -109,7 +109,7 @@ function displayBoards(boards) {
     boardsContainer.appendChild(boardElement);
   });
 
-}
+};
 
 // Filters tasks corresponding to the board name and displays them on the DOM.
 // TASK: Fix Bugs
@@ -144,12 +144,12 @@ function filterAndDisplayTasksByBoard(boardName) {
       tasksContainer.appendChild(taskElement);
     });
   });
-}
+};
 
 
 function refreshTasksUI() {
   filterAndDisplayTasksByBoard(activeBoard);
-}
+};
 
 // Styles the active board by adding an active class
 // TASK: Fix Bugs
@@ -161,7 +161,7 @@ function styleActiveBoard(boardName) {
       btn.classList.remove('active'); 
     }
   });
-}
+};
 
 
 function addTaskToUI(task) {
@@ -169,7 +169,7 @@ function addTaskToUI(task) {
   if (!column) {
     console.error(`Column not found for status: ${task.status}`);
     return;
-  }
+  };
 
   let tasksContainer = column.querySelector('.tasks-container');
   if (!tasksContainer) {
@@ -177,7 +177,7 @@ function addTaskToUI(task) {
     tasksContainer = document.createElement('div');
     tasksContainer.className = 'tasks-container';
     column.appendChild(tasksContainer);
-  }
+  };
 
   const taskElement = document.createElement('div');
   taskElement.className = 'task-div';
@@ -185,7 +185,7 @@ function addTaskToUI(task) {
   taskElement.setAttribute('data-task-id', task.id);
   
   tasksContainer.appendChild(); 
-}
+};
 
 
 
@@ -224,13 +224,13 @@ function setupEventListeners() {
   elements.taskModal.addEventListener("submit", (event) => {
     addTask(event);
   });
-}
+};
 
 // Toggles tasks modal
 // Task: Fix bugs
 function toggleModal(show, modal = elements.taskModal) {
   modal.style.display = show ? "block" : "none";
-}
+};
 
 /*************************************************************************************************************************************************
  * COMPLETE FUNCTION CODE
@@ -255,20 +255,20 @@ function addTask(event) {
       elements.filter.style.display = 'none'; // Also hide the filter overlay
       event.target.reset();
       refreshTasksUI();
-    }
-}
+    };
+};
 
 
 function toggleSidebar(show) {
   elements.navSideBar.style.display = show ? 'block' : 'none';
   elements.showSideBarBtn.style.display = show ? 'none' : 'block';
   localStorage.setItem('showSideBar', show);
-}
+};
 
 function toggleTheme() {
   document.body.classList.toggle('light-theme');
   localStorage.setItem('light-theme', document.body.classList.contains('light-theme') ? 'enabled' : 'disable');
-}
+};
 
 
 
@@ -312,7 +312,7 @@ function saveTaskChanges(taskId) {
   // Close the modal and refresh the UI to reflect the changes
   toggleModal(false, elements.editTaskModal);
   refreshTasksUI();
-}
+};
 
 /*************************************************************************************************************************************************/
 
