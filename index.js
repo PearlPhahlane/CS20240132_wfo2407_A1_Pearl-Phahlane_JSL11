@@ -72,6 +72,7 @@ const elements = {
   deleteTaskBtn: document.getElementById("delete-task-btn"), //P: there were two cancel-edit-btn id's
   filterDiv: document.getElementById("filterDiv"),
   columnDivs: document.querySelectorAll(".column-div"),
+  editModalDiv: document.querySelectorAll(".edit-task-modal-window"),
 };
 
 let activeBoard = ""
@@ -291,6 +292,12 @@ function openEditTaskModal(task) {
   // Get button elements from the task modal
   const saveChangesBtn = elements.saveChangesBtn;
   const deleteTaskBtn = document.getElementById("delete-task-btn"); //P: changed ID
+  const cancelEditBtn = document.getElementById("cancel-edit-btn"); //P: add the cancel button
+
+  //P: clean up previous event listners 
+  saveChangesBtn.onclick = null;
+  deleteTaskBtn.onclick = null;
+  cancelEditBtn.onclick = null;
 
   // Call saveTaskChanges upon click of Save Changes button
  saveChangesBtn.onclick = () => saveTaskChanges(task.id);
@@ -302,7 +309,13 @@ function openEditTaskModal(task) {
     refreshTasksUI();
   };
 
-  toggleModal(true, elements.editTaskWindow); // Show the edit task modal
+  //P: close task modal  when clicked
+  cancelEditBtn.onclick = () => {
+    toggleModal(false, elements.editTaskWindow);
+    refreshTasksUI();
+  };
+
+  toggleModal(true, elements.editTaskWindow);
 };
 
 function saveTaskChanges(taskId) {
@@ -320,7 +333,7 @@ function saveTaskChanges(taskId) {
 
 
   // Close the modal and refresh the UI to reflect the changes
-  toggleModal(false, elements.editTaskModal);
+  toggleModal(false, elements.editTaskWindow);
   refreshTasksUI();
 };
 
