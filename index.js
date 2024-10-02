@@ -60,6 +60,7 @@ const elements = {
   statusSelect: document.getElementById("select-status"),
   createTaskBtn: document.getElementById("create-task-btn"),
   cancelTaskBtn: document.getElementById("cancel-add-task-btn"),
+  editTaskWindow: document.getElementById("edit-task-modal"),
   editTaskModal: document.getElementById("edit-task-form"),
   editTaskDiv: document.getElementById("edit-task-header"),
   editTaskInput: document.getElementById("edit-task-title-input"),
@@ -297,11 +298,11 @@ function openEditTaskModal(task) {
   // Delete task using a helper function and close the task modal
   deleteTaskBtn.onclick = () => {
     deleteTask(task.id);
-    toggleModal(false, elements.editTaskModal);
+    toggleModal(false, elements.editTaskWindow);
     refreshTasksUI();
   };
 
-  toggleModal(true, elements.editTaskModal); // Show the edit task modal
+  toggleModal(true, elements.editTaskWindow); // Show the edit task modal
 };
 
 function saveTaskChanges(taskId) {
