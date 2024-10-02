@@ -222,6 +222,12 @@ function setupEventListeners() {
     elements.filterDiv.style.display = "block"; // Also show the filter overlay
   });
 
+  //P: click on 3 dots to add new task in smaller screens:
+  elements.threeDotsIcon.addEventListener("click", () => {
+    toggleModal(true);
+    elements.filterDiv.style.display = "block";
+  });
+
 
   // Add new task form submission event listener
   elements.taskModal.addEventListener("submit", (event) => {
