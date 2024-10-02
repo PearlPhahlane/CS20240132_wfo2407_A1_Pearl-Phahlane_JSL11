@@ -273,6 +273,12 @@ function toggleSidebar(show) {
   localStorage.setItem('showSideBar', show);
 };
 
+//P: Add this function to be able to get the light logo svg to work
+function toggleTheme() {
+  const body = document.body;
+  const logo = document.getElementById("logo");
+
+}
 
 function openEditTaskModal(task) {
   // Set task details in modal inputs
