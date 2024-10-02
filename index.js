@@ -23,6 +23,7 @@ const elements = {
   navSideBar: document.getElementById("side-bar-div"),
   sideLogo: document.getElementById("side-logo-div"),
   logo: document.getElementById("logo"),
+  logoLight: document.getElementById("logo-light"),
   boardsNavLinks: document.getElementById("boards-nav-links-div"),
   sidePanel: document.getElementById("headline-sidepanel"),
   darkIcon: document.getElementById("icon-dark"),
@@ -271,12 +272,6 @@ function toggleSidebar(show) {
   elements.showSideBarBtn.style.display = show ? 'none' : 'block';
   localStorage.setItem('showSideBar', show);
 };
-
-function toggleTheme() {
-  document.body.classList.toggle('light-theme');
-  localStorage.setItem('light-theme', document.body.classList.contains('light-theme') ? 'enabled' : 'disable');
-};
-
 
 
 function openEditTaskModal(task) {
