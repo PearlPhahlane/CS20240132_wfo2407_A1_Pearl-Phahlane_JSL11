@@ -69,7 +69,7 @@ const elements = {
   saveChangesBtn: document.getElementById("save-task-changes-btn"),
   cancelEditBtn: document.getElementById("cancel-edit-btn"),
   deleteTaskBtn: document.getElementById("delete-task-btn"), //P: there were two cancel-edit-btn id's
-  filter: document.getElementById("filterDiv"),
+  filterDiv: document.getElementById("filterDiv"),
   columnDivs: document.querySelectorAll(".column-div"),
 };
 
@@ -200,13 +200,13 @@ function setupEventListeners() {
   const cancelAddTaskBtn = document.getElementById("cancel-add-task-btn");
   cancelAddTaskBtn.addEventListener("click", () => {
     toggleModal(false);
-    elements.filter.style.display = "none"; // Also hide the filter overlay
+    elements.filterDiv.style.display = "none"; // Also hide the filter overlay
   });
 
   // Clicking outside the modal to close it
-  elements.filter.addEventListener("click", () => {
+  elements.filterDiv.addEventListener("click", () => {
     toggleModal(false);
-    elements.filter.style.display = "none"; // Also hide the filter overlay
+    elements.filterDiv.style.display = "none"; // Also hide the filter overlay
   });
 
   // Show sidebar event listener
@@ -219,7 +219,7 @@ function setupEventListeners() {
   // Show Add New Task Modal event listener
   elements.createTaskBtn.addEventListener("click", () => {
     toggleModal(true);
-    elements.filter.style.display = "block"; // Also show the filter overlay
+    elements.filterDiv.style.display = "block"; // Also show the filter overlay
   });
 
   elements.addTaskBtn.addEventListener("click", () => toggleModal(true));
@@ -257,7 +257,7 @@ function addTask(event) {
     if (newTask) {
       addTaskToUI(newTask);
       toggleModal(false);
-      elements.filter.style.display = 'none'; // Also hide the filter overlay
+      elements.filterDiv.style.display = "none"; // Also hide the filter overlay
       event.target.reset();
       refreshTasksUI();
     };
