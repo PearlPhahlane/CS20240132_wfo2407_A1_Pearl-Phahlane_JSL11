@@ -280,6 +280,14 @@ function toggleTheme() {
 
   body.classList.toggle("light-theme");
 
+  if (body.classList.contains("light-theme")) {
+    logo.src = "./assets/logo-light.svg";
+  } else {
+    logo.src = "./assets/logo-dark.svg";
+  }
+  localStorage.setItem("light-theme", body.classList.contains("light-theme") ? "enabled" : "disabled");
+  }
+
 }
 
 function openEditTaskModal(task) {
