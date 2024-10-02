@@ -278,6 +278,8 @@ function toggleTheme() {
   const body = document.body;
   const logo = document.getElementById("logo");
 
+  body.classList.toggle("light-theme");
+
 }
 
 function openEditTaskModal(task) {
