@@ -68,7 +68,7 @@ const elements = {
   editSelectStatus: document.getElementById("edit-select-status"),
   saveChangesBtn: document.getElementById("save-task-changes-btn"),
   cancelEditBtn: document.getElementById("cancel-edit-btn"),
-  deleteTaskBtn: document.getElementById("cancel-edit-btn"),
+  deleteTaskBtn: document.getElementById("delete-task-btn"), //P: there were two cancel-edit-btn id's
   filter: document.getElementById("filterDiv"),
   columnDivs: document.querySelectorAll(".column-div"),
 };
@@ -280,7 +280,7 @@ function openEditTaskModal(task) {
 
   // Get button elements from the task modal
   const saveChangesBtn = elements.saveChangesBtn;
-  const deleteTaskBtn = elements.deleteTaskBtn;
+  const deleteTaskBtn = document.getElementById("delete-task-btn"); //P: changed ID
 
   // Call saveTaskChanges upon click of Save Changes button
  saveChangesBtn.onclick = () => saveTaskChanges(task.id);
