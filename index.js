@@ -199,12 +199,14 @@ function setupEventListeners() {
   const cancelAddTaskBtn = document.getElementById("cancel-add-task-btn");
   cancelAddTaskBtn.addEventListener("click", () => {
     toggleModal(false);
+    resetFormInputs(); //P: Clear the form inputs
     elements.filterDiv.style.display = "none"; // Also hide the filter overlay
   });
 
   // Clicking outside the modal to close it
   elements.filterDiv.addEventListener("click", () => {
     toggleModal(false);
+    resetFormInputs();
     elements.filterDiv.style.display = "none"; // Also hide the filter overlay
   });
 
@@ -240,6 +242,12 @@ function toggleModal(show, modal = elements.taskModal) {
   modal.style.display = show ? "block" : "none";
 };
 
+//P:This function helps clear the input that I did not want to add when clicking cancel or clicking outside modal
+function resetFormInputs() {
+  elements.titleText.value = "";
+  elements.descriptionText.value = "";
+  elements.statusSelect.value = ""; // Reset the select dropdown if applicable
+}
 /*************************************************************************************************************************************************
  * COMPLETE FUNCTION CODE
  * **********************************************************************************************************************************************/
