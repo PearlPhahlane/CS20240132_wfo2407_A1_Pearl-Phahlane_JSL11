@@ -1,4 +1,4 @@
-LOOM LINK VIDEO: 
+### LOOM LINK VIDEO: [JSL_11 Presentation](https://www.loom.com/share/476332df60d14cf999ffad101189c8e2?sid=95bd2ecc-cc2e-4b59-a65e-34b3d2771981)
 
 ### [JSL11] Agile Board - Kanban Task Management App
 
