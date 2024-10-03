@@ -1,12 +1,6 @@
-// TASK: import helper functions from utils
-// TASK: import initialData
 import { getTasks, createNewTask, patchTask, deleteTask } from './utils/taskFunctions.js';
 import { initialData } from './initialData.js';
 
-
-/*************************************************************************************************************************************************
- * FIX BUGS!!!
- * **********************************************************************************************************************************************/
 
 // Function checks if local storage already has data, if not it loads initialData to localStorage
 function initializeData() {
@@ -18,7 +12,7 @@ function initializeData() {
   }
 }
 
-// TASK: Get elements from the DOM
+// Get elements from the DOM
 const elements = {
   navSideBar: document.getElementById("side-bar-div"),
   sideLogo: document.getElementById("side-logo-div"),
@@ -79,7 +73,6 @@ const elements = {
 let activeBoard = "";
 
 // Extracts unique board names from tasks
-// TASK: FIX BUGS
 function fetchAndDisplayBoardsAndTasks() {
   const tasks = getTasks();
   const boards = [...new Set(tasks.map((task) => task.board).filter(Boolean))];
@@ -94,7 +87,6 @@ function fetchAndDisplayBoardsAndTasks() {
 };
 
 // Creates different boards in the DOM
-// TASK: Fix Bugs
 function displayBoards(boards) {
   const boardsContainer = document.getElementById("boards-nav-links-div");
   boardsContainer.innerHTML = ''; // Clears the container
@@ -115,7 +107,6 @@ function displayBoards(boards) {
 };
 
 // Filters tasks corresponding to the board name and displays them on the DOM.
-// TASK: Fix Bugs
 function filterAndDisplayTasksByBoard(boardName) {
   const tasks = getTasks(); // Fetch tasks from a simulated local storage function
   const filteredTasks = tasks.filter(task => task.board === boardName);
@@ -155,7 +146,6 @@ function refreshTasksUI() {
 };
 
 // Styles the active board by adding an active class
-// TASK: Fix Bugs
 function styleActiveBoard(boardName) {
   document.querySelectorAll('.board-btn').forEach(btn => { 
     if(btn.textContent === boardName) {
@@ -231,7 +221,6 @@ function setupEventListeners() {
 };
 
 // Toggles tasks modal
-// Task: Fix bugs
 function toggleModal(show, modal = elements.taskModal) {
   modal.style.display = show ? "block" : "none";
 };
@@ -242,9 +231,6 @@ function resetFormInputs() {
   elements.descriptionText.value = "";
   elements.statusSelect.value = ""; // Reset the select dropdown if applicable
 }
-/*************************************************************************************************************************************************
- * COMPLETE FUNCTION CODE
- * **********************************************************************************************************************************************/
 
 function addTask(event) {
   event.preventDefault(); 
@@ -360,7 +346,7 @@ function saveTaskChanges(taskId) {
   refreshTasksUI();
 };
 
-/*************************************************************************************************************************************************/
+/************************************************************************************************************************************************/
 
 document.addEventListener('DOMContentLoaded', function() {
   init(); // init is called after the DOM is fully loaded
