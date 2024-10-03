@@ -76,7 +76,7 @@ const elements = {
   editModalDiv: document.querySelectorAll(".edit-task-modal-window"),
 };
 
-let activeBoard = ""
+let activeBoard = "";
 
 // Extracts unique board names from tasks
 // TASK: FIX BUGS
@@ -130,7 +130,7 @@ function filterAndDisplayTasksByBoard(boardName) {
                         </div>`;
 
     const tasksContainer = document.createElement("div");
-    tasksContainer.classList.add("tasks-container");
+    tasksContainer.classList.add("tasks-container"); //P:added this 
     column.appendChild(tasksContainer);
 
     filteredTasks.filter(task => task.status === status).forEach(task => { 
@@ -365,6 +365,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function init() {
+  initializeData();
   setupEventListeners();
   const showSidebar = localStorage.getItem('showSideBar') === 'true';
   toggleSidebar(showSidebar);
